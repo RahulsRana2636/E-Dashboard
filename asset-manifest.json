@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/E-Dashboard/static/css/main.8a8c233d.css",
+    "main.js": "/E-Dashboard/static/js/main.671eb690.js",
+    "static/js/787.520be0ad.chunk.js": "/E-Dashboard/static/js/787.520be0ad.chunk.js",
+    "static/media/logo.webp": "/E-Dashboard/static/media/logo.10837b3d1515d779285f.webp",
+    "index.html": "/E-Dashboard/index.html",
+    "main.8a8c233d.css.map": "/E-Dashboard/static/css/main.8a8c233d.css.map",
+    "main.671eb690.js.map": "/E-Dashboard/static/js/main.671eb690.js.map",
+    "787.520be0ad.chunk.js.map": "/E-Dashboard/static/js/787.520be0ad.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8a8c233d.css",
+    "static/js/main.671eb690.js"
+  ]
+}
