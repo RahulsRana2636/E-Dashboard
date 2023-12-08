@@ -24,7 +24,7 @@ const ProductList = () => {
   }, []);
 
   const getProducts = async () => {
-    let result = await fetch("http://localhost:5000/products", {
+    let result = await fetch(process.env.REACT_APP_API_URL +'products', {
       headers: {
         authorization: JSON.parse(localStorage.getItem("token")),
       },
@@ -35,7 +35,7 @@ const ProductList = () => {
 
   const deleteProduct = async (id) => {
     console.warn(id);
-    let result = await fetch(`http://localhost:5000/product/${id}`, {
+    let result = await fetch(process.env.REACT_APP_API_URL +`product/${id}`, {
       method: "Delete",
     });
     result = await result.json();
