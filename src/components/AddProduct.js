@@ -31,17 +31,20 @@ const AddProduct = () => {
         const userId = JSON.parse(localStorage.getItem('user'))._id;
         let result = await fetch(process.env.REACT_APP_API_URL +'add-product', {
             method: "post",
-            body: JSON.stringify({ name, price, category, company, userId }),
-            headers: {
-                "Content-type": "application/json"
-            }
-        });
-        result = await result.json();
+        body: JSON.stringify({ name, price, category, company, userId }),
+        headers: {
+          "Content-type": "application/json",
+          authorization: `bearer ${JSON.parse(localStorage.getItem("token"))}`,
+        },
+      }
+    );
+    result = await result.json();
              successNotify();
              setTimeout(() => {
                 navigate('/');
             }, 1200);
     }
+       
     return (
         <div className='product'>
         <h1>Add Product</h1>
@@ -66,7 +69,7 @@ const AddProduct = () => {
         {error && !company && <span className='invalid-input'>Enter valid company</span>}
 
 
-        <button onClick={addProduct} className='appButton'>Add Product</button>
+        <button onClick={addProduct} className='appButton'>Add Products</button>
         <ToastContainer />
     </div>
     )

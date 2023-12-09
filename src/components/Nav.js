@@ -11,10 +11,6 @@ import logo from '../images/logo.webp';
     }
     return(
         <div>
-           <img
-            alt='logo'
-            className='logo'
-             src={logo} />
             {
                 auth ?
 
