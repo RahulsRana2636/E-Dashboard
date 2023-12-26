@@ -17,6 +17,7 @@ import logo from '../images/logo.webp';
                     <ul className="nav-ul">
                         <li><Link to="/">Products</Link></li>
                         <li><Link to="/add">Add Products</Link></li>
+                        <li><Link to="/showcart">Carts</Link></li>
                         <li> <Link onClick={logout} to="/signup">Logout ({ JSON.parse(auth).name})</Link></li>
                     </ul>
                     :

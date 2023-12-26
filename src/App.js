@@ -8,10 +8,13 @@ import Login from './components/Login';
 import AddProduct from './components/AddProduct';
 import ProductList from './components/ProductList';
 import UpdateProduct from './components/UpdateProduct';
+import ShowCart from './ShowCart';
+import { CartProvider } from "./components/CartContext";
 
 function App() {
   return (
     <div className="App">
+       <CartProvider>
       <BrowserRouter >
       <Nav />
      <Routes>
@@ -20,6 +23,7 @@ function App() {
        <Route path="/add" element={<AddProduct />} />
        <Route path="/update/:id" element={<UpdateProduct />} />
        <Route path="/logout" element={<h1> Logout Component</h1>} />
+       <Route path="/showcart" element={<ShowCart />} />
       
        </Route>
        <Route path="/signup" element={<SignUp />} />
@@ -27,6 +31,7 @@ function App() {
 
      </Routes>
      </BrowserRouter>
+     </CartProvider>
      <Footer />
     </div>
   );
