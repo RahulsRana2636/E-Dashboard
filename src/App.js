@@ -8,13 +8,11 @@ import Login from './components/Login';
 import AddProduct from './components/AddProduct';
 import ProductList from './components/ProductList';
 import UpdateProduct from './components/UpdateProduct';
-import ShowCart from './ShowCart';
-import { CartProvider } from "./components/CartContext";
+import ShowCart from './components/ShowCart';
 
 function App() {
   return (
     <div className="App">
-       <CartProvider>
       <BrowserRouter >
       <Nav />
      <Routes>
@@ -31,7 +29,6 @@ function App() {
 
      </Routes>
      </BrowserRouter>
-     </CartProvider>
      <Footer />
     </div>
   );

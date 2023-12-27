@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import logo from '../images/logo.webp';
 
     const Nav = () => {
     const auth = localStorage.getItem('user');
@@ -15,6 +14,7 @@ import logo from '../images/logo.webp';
                 auth ?
 
                     <ul className="nav-ul">
+                         <li  className="logo"> <Link> Product <span>Mart</span> </Link></li>
                         <li><Link to="/">Products</Link></li>
                         <li><Link to="/add">Add Products</Link></li>
                         <li><Link to="/showcart">Carts</Link></li>
@@ -22,6 +22,7 @@ import logo from '../images/logo.webp';
                     </ul>
                     :
                     <ul className="nav-ul nav-right">
+                        <li  className="logo"> <Link> Product <span>Mart</span> </Link></li>
                         <li> <Link to="/signup">Sign Up</Link></li>
                         <li><Link to="/login">Login</Link></li>
                     </ul>

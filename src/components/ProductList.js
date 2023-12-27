@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useCart } from "./CartContext";
 import { Modal, Button } from "react-bootstrap";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -16,18 +15,14 @@ const notifydata = {
   theme: "colored",
 };
 const successNotify = () =>toast.success("Product deleted Successfully!", notifydata);
-const success1Notify = () =>toast.success("Product added to cart", notifydata);
+const successNotify1= () =>toast.success("Product added to cart", notifydata);
 const errNotify = () => toast.error("Product not deleted!", notifydata);
 
 const ProductList = () => {
-  const { addToCart } = useCart();
   const [products, setProducts] = useState([]);
   const [sortOrder, setSortOrder] = useState("clear"); 
   
-  const handleAddToCart = (product) => {
-    addToCart(product);
-    success1Notify();
-  };
+
   useEffect(() => {
     getProducts();
   }, []);
@@ -124,7 +119,24 @@ const ProductList = () => {
     setSortOrder(selectedSortOrder);
     priceFilter(selectedSortOrder);
   };
-
+  const handleAddToCart = async (product) => {
+    try{
+    const result = await fetch(process.env.REACT_APP_API_URL + "add-to-cart", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `bearer ${JSON.parse(localStorage.getItem("token"))}`,
+      },
+      body: JSON.stringify( product ), 
+    });
+    if(result.status==200){
+    successNotify1();
+    }
+  }
+  catch(err){
+    console.log(err)
+  }
+  };
  
   
   return (
@@ -142,9 +154,7 @@ const ProductList = () => {
             <select value={sortOrder} onChange={handleSortChange} >
               <option value="clear">Clear</option>
               <option value="esc">Low to High</option>
-              {/* <option value="1" onClick={priceFilter}>Low to High</option> */}
               <option value="desc">High to Low</option>
-              {/* <option value="2" onClick={priceFilter}>High to Low</option> */}
             </select>
           </div>
 
